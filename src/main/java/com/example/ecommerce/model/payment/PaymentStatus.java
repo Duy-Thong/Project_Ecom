@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class PaymentStatus {
 	private String statusID;
 	private String paymentStatusName;
-	public ArrayList<Payment> payments = new ArrayList<Payment>();
 
 	public String gettStatusID() {
 		throw new UnsupportedOperationException();

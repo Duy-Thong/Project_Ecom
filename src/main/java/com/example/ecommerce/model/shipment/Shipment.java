@@ -12,8 +12,7 @@ public class Shipment {
 	private String status;
 	private List<ShipmentStatus> shipmentStatuses;
 	private ShipmentMethods shipmentMethod;
-	public Order order;
-	public ShipmentMethods shipmentMethods;
+
 
 	public String getShipmentID() {
 		return this.shipmentID;

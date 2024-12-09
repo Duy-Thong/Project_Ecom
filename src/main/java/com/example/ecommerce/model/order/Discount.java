@@ -8,7 +8,6 @@ public class Discount {
 	private int percent;
 	private Date startDate;
 	private Date endDate;
-	public ArrayList<Order> order = new ArrayList<Order>();
 
 	public String getID() {
 		throw new UnsupportedOperationException();

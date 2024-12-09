@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Role {
 	private String roleID;
 	private String roleName;
-	public ArrayList<User> user = new ArrayList<User>();
 
 	public String getRoleID() {
 		return this.roleID;

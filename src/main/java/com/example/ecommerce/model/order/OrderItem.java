@@ -6,7 +6,6 @@ public class OrderItem {
 	private String orderItemID;
 	private int quantity;
 	private Product product;
-	public Order order;
 
 	public String getOrderItemID() {
 		return this.orderItemID;

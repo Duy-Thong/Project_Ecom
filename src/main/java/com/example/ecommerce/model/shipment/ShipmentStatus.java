@@ -5,7 +5,6 @@ public class ShipmentStatus {
 	private Date timestamp;
 	private String location;
 	private String statusDescription;
-	public Shipment shipment;
 
 	public String getStatusID() {
 		return this.statusID;

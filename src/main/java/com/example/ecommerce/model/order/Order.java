@@ -11,8 +11,6 @@ public class Order {
 	private Shipment shipment;
 	private Payment payment;
 	private Discount discount;
-	public Customer customer;
-	public ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>();
 
 	public String getOrderID() {
 		return this.orderID;

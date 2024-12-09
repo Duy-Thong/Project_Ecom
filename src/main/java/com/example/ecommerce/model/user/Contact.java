@@ -4,7 +4,6 @@ public class Contact {
 	private String phoneNumber;
 	private String email;
 	private String social;
-	public User user;
 
 	public String getPhoneNumber() {
 		return this.phoneNumber;

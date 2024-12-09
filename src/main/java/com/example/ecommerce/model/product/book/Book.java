@@ -4,9 +4,8 @@ import com.example.ecommerce.model.product.Product;
 
 public class Book extends Product {
 	private String isbn;
-	private Author authors;
+	private Author author;
 	private Publisher publisher;
-	public Author author;
 
 	public String getID() {
 		throw new UnsupportedOperationException();

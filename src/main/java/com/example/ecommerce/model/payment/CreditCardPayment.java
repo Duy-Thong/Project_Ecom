@@ -1,7 +1,6 @@
 package com.example.ecommerce.model.payment;
 
 public class CreditCardPayment extends Payment {
-	private int iD;
 	private String creditCardNumber;
 	private String cardHolderName;
 	private Date expirationDate;

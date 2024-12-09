@@ -10,9 +10,7 @@ public class Customer extends User {
 	private List<Order> orderHistory;
 	private String paymentMethod;
 	private String shippingAddress;
-	public ArrayList<Rating> rating = new ArrayList<Rating>();
-	public ArrayList<Order> orders = new ArrayList<Order>();
-	public Cart cart;
+
 
 	public List<Cart> getShoppingCart() {
 		throw new UnsupportedOperationException();

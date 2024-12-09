@@ -4,7 +4,6 @@ public class FullName {
 	private String firstName;
 	private String lastName;
 	private String middleName;
-	public User user;
 
 	public String getFirstName() {
 		return this.firstName;

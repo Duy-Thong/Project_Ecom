@@ -7,8 +7,7 @@ import java.util.ArrayList;
 public class Cart {
 	private String cartID;
 	private List<CartItem> items;
-	public Customer customer;
-	public ArrayList<CartItem> cartItems = new ArrayList<CartItem>();
+
 
 	public String getCartID() {
 		return this.cartID;

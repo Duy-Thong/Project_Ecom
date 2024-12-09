@@ -7,8 +7,6 @@ public class Payment {
 	private Date paymentDate;
 	private PaymentStatus status;
 	private String method;
-	public Order order;
-	public PaymentStatus paymentStatus;
 
 	public String getPaymentID() {
 		return this.paymentID;

@@ -6,8 +6,6 @@ public class Rating {
 	private Date ratingDate;
 	private String comment;
 	private Customer reviewer;
-	public Product product;
-	public Customer customer;
 
 	public String getRatingID() {
 		return this.ratingID;

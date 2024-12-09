@@ -5,8 +5,6 @@ public class Address {
 	private String state;
 	private String postalCode;
 	private String country;
-	private int iD;
-	public User user;
 
 	public String getCity() {
 		return this.city;

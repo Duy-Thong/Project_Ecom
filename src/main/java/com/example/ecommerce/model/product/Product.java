@@ -11,9 +11,7 @@ public class Product {
 	private String description;
 	private String image_url;
 	private List<Rating> ratings;
-	public CartItem cartItem;
-	public OrderItem orderItem;
-	public ArrayList<Rating> rating = new ArrayList<Rating>();
+
 
 	public String geProductID() {
 		throw new UnsupportedOperationException();

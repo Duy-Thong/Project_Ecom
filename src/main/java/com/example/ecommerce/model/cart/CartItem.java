@@ -6,7 +6,6 @@ public class CartItem {
 	private String cartItemID;
 	private int quantity;
 	private Product product;
-	public Cart cart;
 
 	public String getCartItemID() {
 		return this.cartItemID;
