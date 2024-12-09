@@ -1,5 +1,7 @@
 package com.example.ecommerce.model.payment;
 
+import java.util.Date;
+
 public class Payment {
 	private String paymentID;
 	private String type;

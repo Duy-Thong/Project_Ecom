@@ -1,5 +1,7 @@
 package com.example.ecommerce.model.product;
 
+import com.example.ecommerce.model.user.Customer;
+
 import java.util.Date;
 
 public class Rating {
