@@ -6,6 +6,14 @@ public class Address {
 	private String postalCode;
 	private String country;
 
+	// Constructor
+	public Address(String city, String state, String postalCode, String country) {
+		this.city = city;
+		this.state = state;
+		this.postalCode = postalCode;
+		this.country = country;
+	}
+
 	public String getCity() {
 		return this.city;
 	}

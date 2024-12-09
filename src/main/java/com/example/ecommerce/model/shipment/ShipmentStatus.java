@@ -6,6 +6,17 @@ public class ShipmentStatus {
 	private String location;
 	private String statusDescription;
 
+	public ShipmentStatus() {
+		// Default constructor
+	}
+
+	public ShipmentStatus(String statusID, Date timestamp, String location, String statusDescription) {
+		this.statusID = statusID;
+		this.timestamp = timestamp;
+		this.location = location;
+		this.statusDescription = statusDescription;
+	}
+
 	public String getStatusID() {
 		return this.statusID;
 	}

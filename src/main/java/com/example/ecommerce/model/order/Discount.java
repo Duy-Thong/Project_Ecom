@@ -1,6 +1,7 @@
 package com.example.ecommerce.model.order;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Discount {
 	private String discountID;
@@ -8,6 +9,14 @@ public class Discount {
 	private int percent;
 	private Date startDate;
 	private Date endDate;
+
+	public Discount(String discountID, String code, int percent, Date startDate, Date endDate) {
+		this.discountID = discountID;
+		this.code = code;
+		this.percent = percent;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
 
 	public String getID() {
 		throw new UnsupportedOperationException();

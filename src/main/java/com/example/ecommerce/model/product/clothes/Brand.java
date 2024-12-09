@@ -9,6 +9,19 @@ public class Brand {
 	public Clothes clothes;
 	public Electronics electronics;
 
+	// Default constructor
+	public Brand() {
+	}
+
+	// Parameterized constructor
+	public Brand(String brandID, String name, String address, String description, int yearEstablished) {
+		this.brandID = brandID;
+		this.name = name;
+		this.address = address;
+		this.description = description;
+		this.yearEstablished = yearEstablished;
+	}
+
 	public String getBrandID() {
 		return this.brandID;
 	}

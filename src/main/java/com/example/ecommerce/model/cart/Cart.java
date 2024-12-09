@@ -3,11 +3,21 @@ package com.example.ecommerce.model.cart;
 import com.example.ecommerce.model.user.Customer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cart {
 	private String cartID;
-	private List<CartItem> items;
+	private List<CartItem> items = new ArrayList<>();
 
+	public Cart(String cartID, List<CartItem> items) {
+		this.cartID = cartID;
+		this.items = items;
+	}
+
+	public Cart(String cartID) {
+		this.cartID = cartID;
+		this.items = new ArrayList<>();
+	}
 
 	public String getCartID() {
 		return this.cartID;
@@ -18,10 +28,10 @@ public class Cart {
 	}
 
 	public List<CartItem> getItems() {
-		throw new UnsupportedOperationException();
+		return this.items;
 	}
 
 	public void setItems(List<CartItem> items) {
-		throw new UnsupportedOperationException();
+		this.items = items;
 	}
 }

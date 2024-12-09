@@ -4,6 +4,7 @@ import com.example.ecommerce.model.payment.Payment;
 import com.example.ecommerce.model.shipment.Shipment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
 	private String orderID;
@@ -11,6 +12,26 @@ public class Order {
 	private Shipment shipment;
 	private Payment payment;
 	private Discount discount;
+
+	public Order() {
+		this.items = new ArrayList<>();
+	}
+	
+	public Order(String orderID) {
+		this();
+		this.orderID = orderID;
+	}
+	
+	public Order(String orderID, List<OrderItem> items) {
+		this(orderID);
+		setItems(items);
+	}
+	
+	public Order(String orderID, List<OrderItem> items, Shipment shipment, Payment payment) {
+		this(orderID, items);
+		this.shipment = shipment;
+		this.payment = payment;
+	}
 
 	public String getOrderID() {
 		return this.orderID;
@@ -21,11 +42,11 @@ public class Order {
 	}
 
 	public List<OrderItem> getItems() {
-		throw new UnsupportedOperationException();
+		return this.items;
 	}
 
 	public void setItems(List<OrderItem> items) {
-		throw new UnsupportedOperationException();
+		this.items = items != null ? items : new ArrayList<>();
 	}
 
 	public Shipment getShipment() {

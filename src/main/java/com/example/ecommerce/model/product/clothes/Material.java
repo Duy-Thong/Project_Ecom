@@ -11,6 +11,22 @@ public class Material {
 	private String careInstructions;
 	public Clothes clothes;
 
+	public Material() {
+		// Default constructor
+	}
+
+	public Material(String materialID, String name, String composition, String texture, 
+				   String durability, Float elasticity, Float breathability, String careInstructions) {
+		this.materialID = materialID;
+		this.name = name;
+		this.composition = composition;
+		this.texture = texture;
+		this.durability = durability;
+		this.elasticity = elasticity;
+		this.breathability = breathability;
+		this.careInstructions = careInstructions;
+	}
+
 	public String getMaterialID() {
 		return this.materialID;
 	}

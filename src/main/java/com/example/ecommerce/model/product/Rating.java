@@ -1,49 +1,64 @@
 package com.example.ecommerce.model.product;
 
+import java.util.Date;
+
 public class Rating {
-	private String ratingID;
-	private int ratingValue;
-	private Date ratingDate;
-	private String comment;
-	private Customer reviewer;
+    private String ratingID;
+    private int ratingValue;
+    private Date ratingDate;
+    private String comment;
+    private Customer reviewer;
 
-	public String getRatingID() {
-		return this.ratingID;
-	}
+    // Default constructor
+    public Rating() {
+    }
 
-	public void setRatingID(String iD) {
-		this.ratingID = iD;
-	}
+    // Parameterized constructor
+    public Rating(String ratingID, int ratingValue, Date ratingDate, String comment, Customer reviewer) {
+        this.ratingID = ratingID;
+        this.ratingValue = ratingValue;
+        this.ratingDate = ratingDate;
+        this.comment = comment;
+        this.reviewer = reviewer;
+    }
 
-	public int getRatingValue() {
-		return this.ratingValue;
-	}
+    public String getRatingID() {
+        return this.ratingID;
+    }
 
-	public void setRatingValue(int ratingValue) {
-		this.ratingValue = ratingValue;
-	}
+    public void setRatingID(String iD) {
+        this.ratingID = iD;
+    }
 
-	public Date getRatingDate() {
-		return this.ratingDate;
-	}
+    public int getRatingValue() {
+        return this.ratingValue;
+    }
 
-	public void setRatingDate(Date ratingDate) {
-		this.ratingDate = ratingDate;
-	}
+    public void setRatingValue(int ratingValue) {
+        this.ratingValue = ratingValue;
+    }
 
-	public String getComment() {
-		return this.comment;
-	}
+    public Date getRatingDate() {
+        return this.ratingDate;
+    }
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    public void setRatingDate(Date ratingDate) {
+        this.ratingDate = ratingDate;
+    }
 
-	public Customer getReviewer() {
-		return this.reviewer;
-	}
+    public String getComment() {
+        return this.comment;
+    }
 
-	public void setReviewer(Customer reviewer) {
-		this.reviewer = reviewer;
-	}
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Customer getReviewer() {
+        return this.reviewer;
+    }
+
+    public void setReviewer(Customer reviewer) {
+        this.reviewer = reviewer;
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.ecommerce.model.product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
 	private String productID;
@@ -12,6 +13,21 @@ public class Product {
 	private String image_url;
 	private List<Rating> ratings;
 
+	public Product() {
+		this.ratings = new ArrayList<>();
+	}
+
+	public Product(String productID, String name, String price, int stock, 
+				  String category, String description, String image_url) {
+		this.productID = productID;
+		this.name = name;
+		this.price = price;
+		this.stock = stock;
+		this.category = category;
+		this.description = description;
+		this.image_url = image_url;
+		this.ratings = new ArrayList<>();
+	}
 
 	public String geProductID() {
 		throw new UnsupportedOperationException();

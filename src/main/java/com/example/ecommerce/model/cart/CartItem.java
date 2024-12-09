@@ -7,6 +7,12 @@ public class CartItem {
 	private int quantity;
 	private Product product;
 
+	public CartItem(String cartItemID, int quantity, Product product) {
+		this.cartItemID = cartItemID;
+		this.quantity = quantity;
+		this.product = product;
+	}
+
 	public String getCartItemID() {
 		return this.cartItemID;
 	}

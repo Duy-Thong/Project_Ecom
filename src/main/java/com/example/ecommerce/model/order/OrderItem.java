@@ -3,31 +3,42 @@ package com.example.ecommerce.model.order;
 import com.example.ecommerce.model.product.Product;
 
 public class OrderItem {
-	private String orderItemID;
-	private int quantity;
-	private Product product;
+    private String orderItemID;
+    private int quantity;
+    private Product product;
 
-	public String getOrderItemID() {
-		return this.orderItemID;
-	}
+    // Default constructor
+    public OrderItem() {
+    }
 
-	public void setOrderItemID(String iD) {
-		this.orderItemID = iD;
-	}
+    // Parameterized constructor
+    public OrderItem(String orderItemID, int quantity, Product product) {
+        this.orderItemID = orderItemID;
+        this.quantity = quantity;
+        this.product = product;
+    }
 
-	public Product getProduct() {
-		return this.product;
-	}
+    public String getOrderItemID() {
+        return this.orderItemID;
+    }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public void setOrderItemID(String iD) {
+        this.orderItemID = iD;
+    }
 
-	public int getQuantity() {
-		return this.quantity;
-	}
+    public Product getProduct() {
+        return this.product;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

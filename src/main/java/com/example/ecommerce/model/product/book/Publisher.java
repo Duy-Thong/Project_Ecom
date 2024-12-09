@@ -3,32 +3,36 @@ package com.example.ecommerce.model.product.book;
 import java.util.ArrayList;
 
 public class Publisher {
-	private String publisherID;
-	private String name;
-	private String address;
-	public ArrayList<Book> book = new ArrayList<Book>();
+    private String publisherID;
+    private String name;
+    private String address;
+    public ArrayList<Book> book;
 
-	public String getID() {
-		throw new UnsupportedOperationException();
-	}
+    public Publisher() {
+        this.book = new ArrayList<Book>();
+    }
 
-	public void setID(String iD) {
-		throw new UnsupportedOperationException();
-	}
+    public String getID() {
+        return this.publisherID;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public void setID(String publisherID) {
+        this.publisherID = publisherID;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	public String getAddress() {
-		return this.address;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

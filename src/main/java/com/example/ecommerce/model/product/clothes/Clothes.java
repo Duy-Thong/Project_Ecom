@@ -8,12 +8,17 @@ public class Clothes extends Product {
 	private Material material;
 	private Brand brand;
 
-	public String getID() {
-		throw new UnsupportedOperationException();
+	public Clothes() {
+		super();
 	}
 
-	public void setProductID(String iD) {
-		throw new UnsupportedOperationException();
+	public Clothes(String id, String name, double price, String description, 
+				  String size, String color, Material material, Brand brand) {
+		super(id, name, price, description);
+		this.size = size;
+		this.color = color;
+		this.material = material;
+		this.brand = brand;
 	}
 
 	public Material getMaterial() {

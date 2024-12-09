@@ -7,6 +7,16 @@ public class ShipmentMethods {
 	private String shipmentMethodName;
 	public ArrayList<Shipment> shipment = new ArrayList<Shipment>();
 
+	// Default constructor
+	public ShipmentMethods() {
+	}
+
+	// Parameterized constructor
+	public ShipmentMethods(String methodID, String shipmentMethodName) {
+		this.methodID = methodID;
+		this.shipmentMethodName = shipmentMethodName;
+	}
+
 	public String getMethodID() {
 		return this.methodID;
 	}

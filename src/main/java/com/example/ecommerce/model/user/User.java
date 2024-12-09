@@ -10,6 +10,22 @@ public class User {
 	private FullName fullName;
 	private Contact contact;
 
+	public User() {
+		// Default constructor
+	}
+
+	public User(String userID, String name, String email, String password, Role role, 
+                Address address, FullName fullName, Contact contact) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+        this.fullName = fullName;
+        this.contact = contact;
+    }
+
 	public String getUserID() {
 		return this.userID;
 	}
@@ -42,12 +58,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRole() {
-		throw new UnsupportedOperationException();
+	public Role getRole() {
+		return this.role;
 	}
 
-	public void setRole(String role) {
-		throw new UnsupportedOperationException();
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public Address getAddress() {

@@ -5,6 +5,13 @@ public class FullName {
 	private String lastName;
 	private String middleName;
 
+	// Constructor
+	public FullName(String firstName, String lastName, String middleName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleName = middleName;
+	}
+
 	public String getFirstName() {
 		return this.firstName;
 	}

@@ -1,5 +1,8 @@
 package com.example.ecommerce.model.shipment;
 
+import java.util.Date;
+import java.util.List;
+
 public class Shipment {
 	private String shipmentID;
 	private Date shipmentDate;
@@ -13,6 +16,26 @@ public class Shipment {
 	private List<ShipmentStatus> shipmentStatuses;
 	private ShipmentMethods shipmentMethod;
 
+	public Shipment() {
+		// Default constructor
+	}
+
+	public Shipment(String shipmentID, Date shipmentDate, Date estimatedDeliveryDate, 
+					Date actualDeliveryDate, String shippingAddress, String trackingNumber, 
+					double fee, String type, String status, List<ShipmentStatus> shipmentStatuses, 
+					ShipmentMethods shipmentMethod) {
+		this.shipmentID = shipmentID;
+		this.shipmentDate = shipmentDate;
+		this.estimatedDeliveryDate = estimatedDeliveryDate;
+		this.actualDeliveryDate = actualDeliveryDate;
+		this.shippingAddress = shippingAddress;
+		this.trackingNumber = trackingNumber;
+		this.fee = fee;
+		this.type = type;
+		this.status = status;
+		this.shipmentStatuses = shipmentStatuses;
+		this.shipmentMethod = shipmentMethod;
+	}
 
 	public String getShipmentID() {
 		return this.shipmentID;

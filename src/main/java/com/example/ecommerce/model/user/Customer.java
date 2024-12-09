@@ -4,6 +4,7 @@ import com.example.ecommerce.model.order.Order;
 import com.example.ecommerce.model.product.Rating;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer extends User {
 	private Cart shoppingCart;
@@ -11,21 +12,17 @@ public class Customer extends User {
 	private String paymentMethod;
 	private String shippingAddress;
 
-
-	public List<Cart> getShoppingCart() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void setShoppingCart(List<Cart> shoppingCart) {
-		throw new UnsupportedOperationException();
+	// Constructor
+	public Customer() {
+		this.orderHistory = new ArrayList<>();
 	}
 
 	public List<Order> getOrderHistory() {
-		throw new UnsupportedOperationException();
+		return this.orderHistory;
 	}
 
 	public void setOrderHistory(List<Order> orderHistory) {
-		throw new UnsupportedOperationException();
+		this.orderHistory = orderHistory;
 	}
 
 	public String getPaymentMethod() {
@@ -42,5 +39,13 @@ public class Customer extends User {
 
 	public void setShippingAddress(String shippingAddress) {
 		this.shippingAddress = shippingAddress;
+	}
+
+	public Cart getShoppingCart() {
+		return this.shoppingCart;
+	}
+
+	public void setShoppingCart(Cart shoppingCart) {
+		this.shoppingCart = shoppingCart;
 	}
 }

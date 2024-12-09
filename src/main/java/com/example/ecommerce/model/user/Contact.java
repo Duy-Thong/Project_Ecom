@@ -5,6 +5,17 @@ public class Contact {
 	private String email;
 	private String social;
 
+	// Default constructor
+	public Contact() {
+	}
+
+	// Parameterized constructor
+	public Contact(String phoneNumber, String email, String social) {
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.social = social;
+	}
+
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}

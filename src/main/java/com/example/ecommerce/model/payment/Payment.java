@@ -8,6 +8,20 @@ public class Payment {
 	private PaymentStatus status;
 	private String method;
 
+	// Default constructor
+	public Payment() {
+	}
+
+	// Parameterized constructor
+	public Payment(String paymentID, String type, String amount, Date paymentDate, PaymentStatus status, String method) {
+		this.paymentID = paymentID;
+		this.type = type;
+		this.amount = amount;
+		this.paymentDate = paymentDate;
+		this.status = status;
+		this.method = method;
+	}
+
 	public String getPaymentID() {
 		return this.paymentID;
 	}
