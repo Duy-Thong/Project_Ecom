@@ -1,21 +1,39 @@
 package com.example.ecommerce.model.product.clothes;
 
 import com.example.ecommerce.model.product.electronics.Electronics;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "brands")
 public class Brand {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "brand_id")
 	private String brandID;
-	private String name;
-	private String address;
-	private String description;
-	private int yearEstablished;
-	public Clothes clothes;
-	public Electronics electronics;
 
-	// Default constructor
+	@Column(nullable = false)
+	private String name;
+
+	@Column(columnDefinition = "TEXT")
+	private String address;
+
+	@Column(columnDefinition = "TEXT")
+	private String description;
+
+	@Column(name = "year_established")
+	private int yearEstablished;
+
+	@OneToMany(mappedBy = "brand")
+	private List<Clothes> clothes = new ArrayList<>();
+
+	@OneToMany(mappedBy = "brand")
+	private List<Electronics> electronics = new ArrayList<>();
+
 	public Brand() {
 	}
 
-	// Parameterized constructor
 	public Brand(String brandID, String name, String address, String description, int yearEstablished) {
 		this.brandID = brandID;
 		this.name = name;
@@ -28,8 +46,8 @@ public class Brand {
 		return this.brandID;
 	}
 
-	public void setBrandID(String iD) {
-		this.brandID = iD;
+	public void setBrandID(String brandID) {
+		this.brandID = brandID;
 	}
 
 	public String getName() {
@@ -62,5 +80,21 @@ public class Brand {
 
 	public void setYearEstablished(int yearEstablished) {
 		this.yearEstablished = yearEstablished;
+	}
+
+	public List<Clothes> getClothes() {
+		return clothes;
+	}
+
+	public void setClothes(List<Clothes> clothes) {
+		this.clothes = clothes;
+	}
+
+	public List<Electronics> getElectronics() {
+		return electronics;
+	}
+
+	public void setElectronics(List<Electronics> electronics) {
+		this.electronics = electronics;
 	}
 }

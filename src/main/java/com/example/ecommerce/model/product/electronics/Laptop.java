@@ -1,8 +1,17 @@
 package com.example.ecommerce.model.product.electronics;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "laptops")
+@PrimaryKeyJoinColumn(name = "laptop_id")
 public class Laptop extends Electronics {
+	@Column(nullable = false)
 	private String keyboard;
+
 	private String trackpad;
+
+	@Column(name = "has_touchscreen")
 	private boolean hasTouchscreen;
 
 	public String getKeyboard() {

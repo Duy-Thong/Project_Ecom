@@ -1,12 +1,25 @@
 package com.example.ecommerce.model.user;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Column;
+
+@Embeddable
 public class Address {
+	@Column(nullable = false)
 	private String city;
+
+	@Column(nullable = false)
 	private String state;
+
+	@Column(name = "postal_code", nullable = false)
 	private String postalCode;
+
+	@Column(nullable = false)
 	private String country;
 
-	// Constructor
+	public Address() {
+	}
+
 	public Address(String city, String state, String postalCode, String country) {
 		this.city = city;
 		this.state = state;

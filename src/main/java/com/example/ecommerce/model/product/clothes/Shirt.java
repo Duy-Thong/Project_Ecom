@@ -1,7 +1,15 @@
 package com.example.ecommerce.model.product.clothes;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "shirts")
+@PrimaryKeyJoinColumn(name = "shirt_id")
 public class Shirt extends Clothes {
+	@Column(name = "sleeve_length", nullable = false)
 	private double sleeveLength;
+
+	@Column(name = "shirt_type", nullable = false)
 	private String shirtType;
 
 	public double getSleeveLength() {

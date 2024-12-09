@@ -1,11 +1,24 @@
 package com.example.ecommerce.model.product.clothes;
 
 import com.example.ecommerce.model.product.Product;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "clothes")
+@PrimaryKeyJoinColumn(name = "clothes_id")
 public class Clothes extends Product {
+	@Column(nullable = false)
 	private String size;
+
+	@Column(nullable = false)
 	private String color;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "material_id")
 	private Material material;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
 	public Clothes() {
@@ -17,22 +30,6 @@ public class Clothes extends Product {
 		this.size = size;
 		this.color = color;
 		this.material = material;
-		this.brand = brand;
-	}
-
-	public Material getMaterial() {
-		return this.material;
-	}
-
-	public void setMaterial(Material material) {
-		this.material = material;
-	}
-
-	public Brand getBrand() {
-		return this.brand;
-	}
-
-	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
 
@@ -50,5 +47,21 @@ public class Clothes extends Product {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public Material getMaterial() {
+		return this.material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+
+	public Brand getBrand() {
+		return this.brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 }

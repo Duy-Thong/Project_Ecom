@@ -1,21 +1,38 @@
 package com.example.ecommerce.model.product;
 
 import com.example.ecommerce.model.user.Customer;
-
+import jakarta.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "ratings")
 public class Rating {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "rating_id")
     private String ratingID;
+
+    @Column(name = "rating_value", nullable = false)
     private int ratingValue;
+
+    @Column(name = "rating_date", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date ratingDate;
+
+    @Column(columnDefinition = "TEXT")
     private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "reviewer_id", nullable = false)
     private Customer reviewer;
 
-    // Default constructor
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
     public Rating() {
     }
 
-    // Parameterized constructor
     public Rating(String ratingID, int ratingValue, Date ratingDate, String comment, Customer reviewer) {
         this.ratingID = ratingID;
         this.ratingValue = ratingValue;
@@ -28,8 +45,8 @@ public class Rating {
         return this.ratingID;
     }
 
-    public void setRatingID(String iD) {
-        this.ratingID = iD;
+    public void setRatingID(String ratingID) {
+        this.ratingID = ratingID;
     }
 
     public int getRatingValue() {
@@ -62,5 +79,13 @@ public class Rating {
 
     public void setReviewer(Customer reviewer) {
         this.reviewer = reviewer;
+    }
+
+    public Product getProduct() {
+        return this.product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

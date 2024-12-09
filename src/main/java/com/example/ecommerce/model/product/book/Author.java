@@ -1,20 +1,33 @@
 package com.example.ecommerce.model.product.book;
 
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "authors")
 public class Author {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "author_id")
     private String authorID;
-    private String name;
-    private String phone;
-    private String email;
-    private List<Book> book = new ArrayList<>();
 
-    public String getauthorID() {
+    @Column(nullable = false)
+    private String name;
+
+    private String phone;
+
+    @Column(nullable = false)
+    private String email;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<Book> books = new ArrayList<>();
+
+    public String getAuthorID() {
         return this.authorID;
     }
 
-    public void setauthorID(String authorID) {
+    public void setAuthorID(String authorID) {
         this.authorID = authorID;
     }
 
@@ -42,11 +55,11 @@ public class Author {
         this.email = email;
     }
 
-    public List<Book> getListBooks() {
-        return this.book;
+    public List<Book> getBooks() {
+        return this.books;
     }
 
-    public void setListBooks(List<Book> listBooks) {
-        this.book = listBooks;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

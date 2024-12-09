@@ -1,8 +1,13 @@
 package com.example.ecommerce.model.user;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Column;
+
+@Embeddable
 public class Contact {
+	@Column(name = "phone_number")
 	private String phoneNumber;
-	private String email;
+
 	private String social;
 
 	// Default constructor
@@ -10,9 +15,8 @@ public class Contact {
 	}
 
 	// Parameterized constructor
-	public Contact(String phoneNumber, String email, String social) {
+	public Contact(String phoneNumber, String social) {
 		this.phoneNumber = phoneNumber;
-		this.email = email;
 		this.social = social;
 	}
 
@@ -22,14 +26,6 @@ public class Contact {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getSocial() {

@@ -1,18 +1,35 @@
 package com.example.ecommerce.model.product.clothes;
 
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "materials")
 public class Material {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "material_id")
 	private String materialID;
+
+	@Column(nullable = false)
 	private String name;
+
+	@Column(columnDefinition = "TEXT")
 	private String composition;
+
 	private String texture;
 	private String durability;
 	private Float elasticity;
 	private Float breathability;
+
+	@Column(name = "care_instructions", columnDefinition = "TEXT")
 	private String careInstructions;
-	public Clothes clothes;
+
+	@OneToMany(mappedBy = "material")
+	private List<Clothes> clothes = new ArrayList<>();
 
 	public Material() {
-		// Default constructor
 	}
 
 	public Material(String materialID, String name, String composition, String texture, 
@@ -31,8 +48,8 @@ public class Material {
 		return this.materialID;
 	}
 
-	public void setMaterialID(String iD) {
-		this.materialID = iD;
+	public void setMaterialID(String materialID) {
+		this.materialID = materialID;
 	}
 
 	public String getName() {
@@ -89,5 +106,13 @@ public class Material {
 
 	public void setCareInstructions(String careInstructions) {
 		this.careInstructions = careInstructions;
+	}
+
+	public List<Clothes> getClothes() {
+		return clothes;
+	}
+
+	public void setClothes(List<Clothes> clothes) {
+		this.clothes = clothes;
 	}
 }

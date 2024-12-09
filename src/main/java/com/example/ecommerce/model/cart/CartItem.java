@@ -1,16 +1,33 @@
 package com.example.ecommerce.model.cart;
 
 import com.example.ecommerce.model.product.Product;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "cart_items")
 public class CartItem {
+	@Id
+	@Column(name = "cart_item_id")
 	private String cartItemID;
+
+	@Column(nullable = false)
 	private int quantity;
+
+	@ManyToOne
+	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
+
+	@ManyToOne
+	@JoinColumn(name = "cart_id", nullable = false)
+	private Cart cart;
 
 	public CartItem(String cartItemID, int quantity, Product product) {
 		this.cartItemID = cartItemID;
 		this.quantity = quantity;
 		this.product = product;
+	}
+
+	public CartItem() {
 	}
 
 	public String getCartItemID() {
@@ -35,5 +52,13 @@ public class CartItem {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 }

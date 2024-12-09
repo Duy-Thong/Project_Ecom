@@ -1,16 +1,37 @@
 package com.example.ecommerce.model.product;
 
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "products")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "product_id")
 	private String productID;
+
+	@Column(nullable = false)
 	private String name;
+
+	@Column(nullable = false)
 	private String price;
+
+	@Column(nullable = false)
 	private int stock;
+
+	@Column(nullable = false)
 	private String category;
+
+	@Column(columnDefinition = "TEXT")
 	private String description;
+
+	@Column(name = "image_url")
 	private String image_url;
+
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Rating> ratings;
 
 	public Product() {
@@ -29,12 +50,12 @@ public class Product {
 		this.ratings = new ArrayList<>();
 	}
 
-	public String geProductID() {
-		throw new UnsupportedOperationException();
+	public String getProductID() {
+		return this.productID;
 	}
 
-	public void setProductID(String iD) {
-		this.productID = iD;
+	public void setProductID(String productID) {
+		this.productID = productID;
 	}
 
 	public String getName() {
@@ -78,11 +99,11 @@ public class Product {
 	}
 
 	public List<Rating> getRatings() {
-		throw new UnsupportedOperationException();
+		return this.ratings;
 	}
 
 	public void setRatings(List<Rating> ratings) {
-		throw new UnsupportedOperationException();
+		this.ratings = ratings;
 	}
 
 	public String getImage_url() {

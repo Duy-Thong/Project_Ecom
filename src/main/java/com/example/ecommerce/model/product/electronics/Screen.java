@@ -1,19 +1,36 @@
 package com.example.ecommerce.model.product.electronics;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "screens")
 public class Screen {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "screen_id")
 	private String screenID;
+
+	@Column(nullable = false)
 	private String resolution;
+
+	@Column(nullable = false)
 	private double size;
+
+	@Column(name = "refresh_rate", nullable = false)
 	private int refreshRate;
+
+	@Column(name = "display_type", nullable = false)
 	private String displayType;
-	public Electronics electronics;
+
+	@OneToOne(mappedBy = "screen")
+	private Electronics electronics;
 
 	public String getScreenID() {
 		return this.screenID;
 	}
 
-	public void setScreenID(String iD) {
-		this.screenID = iD;
+	public void setScreenID(String screenID) {
+		this.screenID = screenID;
 	}
 
 	public String getResolution() {
@@ -46,5 +63,13 @@ public class Screen {
 
 	public void setDisplayType(String displayType) {
 		this.displayType = displayType;
+	}
+
+	public Electronics getElectronics() {
+		return electronics;
+	}
+
+	public void setElectronics(Electronics electronics) {
+		this.electronics = electronics;
 	}
 }

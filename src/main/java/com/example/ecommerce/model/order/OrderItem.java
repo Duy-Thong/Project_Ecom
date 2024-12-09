@@ -1,17 +1,30 @@
 package com.example.ecommerce.model.order;
 
 import com.example.ecommerce.model.product.Product;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "order_items")
 public class OrderItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "order_item_id")
     private String orderItemID;
+
+    @Column(nullable = false)
     private int quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    // Default constructor
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
     public OrderItem() {
     }
 
-    // Parameterized constructor
     public OrderItem(String orderItemID, int quantity, Product product) {
         this.orderItemID = orderItemID;
         this.quantity = quantity;
@@ -22,8 +35,8 @@ public class OrderItem {
         return this.orderItemID;
     }
 
-    public void setOrderItemID(String iD) {
-        this.orderItemID = iD;
+    public void setOrderItemID(String orderItemID) {
+        this.orderItemID = orderItemID;
     }
 
     public Product getProduct() {
@@ -40,5 +53,13 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

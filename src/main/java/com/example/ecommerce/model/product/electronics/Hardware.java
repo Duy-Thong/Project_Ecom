@@ -1,19 +1,35 @@
 package com.example.ecommerce.model.product.electronics;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "hardware")
 public class Hardware {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "hardware_id")
 	private String hardwareID;
+
+	@Column(nullable = false)
 	private String cpu;
+
 	private String gpu;
+
+	@Column(nullable = false)
 	private String ram;
+
+	@Column(nullable = false)
 	private String storage;
-	public Electronics electronics;
+
+	@OneToOne(mappedBy = "hardware")
+	private Electronics electronics;
 
 	public String getHardwareID() {
 		return this.hardwareID;
 	}
 
-	public void setHardwareID(String iD) {
-		this.hardwareID = iD;
+	public void setHardwareID(String hardwareID) {
+		this.hardwareID = hardwareID;
 	}
 
 	public String getCpu() {
@@ -46,5 +62,13 @@ public class Hardware {
 
 	public void setStorage(String storage) {
 		this.storage = storage;
+	}
+
+	public Electronics getElectronics() {
+		return electronics;
+	}
+
+	public void setElectronics(Electronics electronics) {
+		this.electronics = electronics;
 	}
 }

@@ -1,12 +1,26 @@
 package com.example.ecommerce.model.payment;
 
+import jakarta.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "credit_card_payments")
+@PrimaryKeyJoinColumn(name = "credit_card_payment_id")
 public class CreditCardPayment extends Payment {
+	@Column(name = "credit_card_number", nullable = false)
 	private String creditCardNumber;
+
+	@Column(name = "card_holder_name", nullable = false)
 	private String cardHolderName;
+
+	@Column(name = "expiration_date", nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date expirationDate;
+
+	@Column(name = "security_code", nullable = false)
 	private String securityCode;
+
+	@Column(name = "billing_address", columnDefinition = "TEXT")
 	private String billingAddress;
 
 	public String getCreditCardNumber() {

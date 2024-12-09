@@ -1,23 +1,54 @@
 package com.example.ecommerce.model.shipment;
 
+import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "shipments")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Shipment {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "shipment_id")
 	private String shipmentID;
+
+	@Column(name = "shipment_date", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date shipmentDate;
+
+	@Column(name = "estimated_delivery_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date estimatedDeliveryDate;
+
+	@Column(name = "actual_delivery_date")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date actualDeliveryDate;
+
+	@Column(name = "shipping_address", columnDefinition = "TEXT", nullable = false)
 	private String shippingAddress;
+
+	@Column(name = "tracking_number", unique = true)
 	private String trackingNumber;
+
+	@Column(nullable = false)
 	private double fee;
+
+	@Column(nullable = false)
 	private String type;
+
+	@Column(nullable = false)
 	private String status;
-	private List<ShipmentStatus> shipmentStatuses;
+
+	@OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL)
+	private List<ShipmentStatus> shipmentStatuses = new ArrayList<>();
+
+	@ManyToOne
+	@JoinColumn(name = "method_id", nullable = false)
 	private ShipmentMethods shipmentMethod;
 
 	public Shipment() {
-		// Default constructor
 	}
 
 	public Shipment(String shipmentID, Date shipmentDate, Date estimatedDeliveryDate, 
@@ -41,8 +72,8 @@ public class Shipment {
 		return this.shipmentID;
 	}
 
-	public void setShipmentID(String iD) {
-		this.shipmentID = iD;
+	public void setShipmentID(String shipmentID) {
+		this.shipmentID = shipmentID;
 	}
 
 	public Date getShipmentDate() {
@@ -94,11 +125,11 @@ public class Shipment {
 	}
 
 	public List<ShipmentStatus> getShipmentStatuses() {
-		throw new UnsupportedOperationException();
+		return this.shipmentStatuses;
 	}
 
 	public void setShipmentStatuses(List<ShipmentStatus> shipmentStatuses) {
-		throw new UnsupportedOperationException();
+		this.shipmentStatuses = shipmentStatuses;
 	}
 
 	public ShipmentMethods getShipmentMethod() {

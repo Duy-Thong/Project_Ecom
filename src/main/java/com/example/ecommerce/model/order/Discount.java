@@ -1,14 +1,37 @@
 package com.example.ecommerce.model.order;
 
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "discounts")
 public class Discount {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "discount_id")
 	private String discountID;
+
+	@Column(nullable = false, unique = true)
 	private String code;
+
+	@Column(nullable = false)
 	private int percent;
+
+	@Column(name = "start_date", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
+
+	@Column(name = "end_date", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
+
+	@OneToMany(mappedBy = "discount")
+	private List<Order> orders = new ArrayList<>();
+
+	public Discount() {
+	}
 
 	public Discount(String discountID, String code, int percent, Date startDate, Date endDate) {
 		this.discountID = discountID;
@@ -18,12 +41,12 @@ public class Discount {
 		this.endDate = endDate;
 	}
 
-	public String getID() {
-		throw new UnsupportedOperationException();
+	public String getDiscountID() {
+		return this.discountID;
 	}
 
-	public void setID(String iD) {
-		throw new UnsupportedOperationException();
+	public void setDiscountID(String discountID) {
+		this.discountID = discountID;
 	}
 
 	public String getCode() {
@@ -58,11 +81,11 @@ public class Discount {
 		this.endDate = endDate;
 	}
 
-	public String getDiscountID() {
-		return this.discountID;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setDiscountID(String discountID) {
-		this.discountID = discountID;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 }

@@ -3,19 +3,34 @@ package com.example.ecommerce.model.user;
 import com.example.ecommerce.model.cart.Cart;
 import com.example.ecommerce.model.order.Order;
 import com.example.ecommerce.model.product.Rating;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "customers")
+@PrimaryKeyJoinColumn(name = "customer_id")
 public class Customer extends User {
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cart_id")
 	private Cart shoppingCart;
+
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Order> orderHistory;
+
+	@Column(name = "payment_method")
 	private String paymentMethod;
+
+	@Column(name = "shipping_address", columnDefinition = "TEXT")
 	private String shippingAddress;
 
-	// Constructor
+	@OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)
+	private List<Rating> ratings;
+
 	public Customer() {
 		this.orderHistory = new ArrayList<>();
+		this.ratings = new ArrayList<>();
 	}
 
 	public List<Order> getOrderHistory() {
@@ -48,5 +63,13 @@ public class Customer extends User {
 
 	public void setShoppingCart(Cart shoppingCart) {
 		this.shoppingCart = shoppingCart;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
 }

@@ -1,17 +1,26 @@
 package com.example.ecommerce.model.shipment;
 
+import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "shipment_methods")
 public class ShipmentMethods {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "method_id")
 	private String methodID;
-	private String shipmentMethodName;
-	public ArrayList<Shipment> shipment = new ArrayList<Shipment>();
 
-	// Default constructor
+	@Column(name = "method_name", nullable = false, unique = true)
+	private String shipmentMethodName;
+
+	@OneToMany(mappedBy = "shipmentMethod")
+	private List<Shipment> shipments = new ArrayList<>();
+
 	public ShipmentMethods() {
 	}
 
-	// Parameterized constructor
 	public ShipmentMethods(String methodID, String shipmentMethodName) {
 		this.methodID = methodID;
 		this.shipmentMethodName = shipmentMethodName;
@@ -31,5 +40,13 @@ public class ShipmentMethods {
 
 	public void setShipmentMethodName(String shipmentMethodName) {
 		this.shipmentMethodName = shipmentMethodName;
+	}
+
+	public List<Shipment> getShipments() {
+		return shipments;
+	}
+
+	public void setShipments(List<Shipment> shipments) {
+		this.shipments = shipments;
 	}
 }

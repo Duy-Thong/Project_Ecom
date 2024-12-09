@@ -2,21 +2,30 @@ package com.example.ecommerce.model.product.electronics;
 
 import com.example.ecommerce.model.product.Product;
 import com.example.ecommerce.model.product.clothes.Brand;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "electronics")
+@PrimaryKeyJoinColumn(name = "electronics_id")
 public class Electronics extends Product {
+	@Column(nullable = false)
 	private String os;
+
+	@ManyToOne
+	@JoinColumn(name = "brand_id")
 	private Brand brand;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "hardware_id")
 	private Hardware hardware;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "screen_id")
 	private Screen screen;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "battery_id")
 	private Battery battery;
-
-	public String getID() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void setProductID(String iD) {
-		throw new UnsupportedOperationException();
-	}
 
 	public Brand getBrand() {
 		return this.brand;

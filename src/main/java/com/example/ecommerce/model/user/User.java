@@ -1,30 +1,52 @@
 package com.example.ecommerce.model.user;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "user_id")
 	private String userID;
+
+	@Column(nullable = false)
 	private String name;
+
+	@Column(nullable = false, unique = true)
 	private String email;
+
+	@Column(nullable = false)
 	private String password;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "role_id", nullable = false)
 	private Role role;
+
+	@Embedded
 	private Address address;
+
+	@Embedded
 	private FullName fullName;
+
+	@Embedded
 	private Contact contact;
 
 	public User() {
-		// Default constructor
 	}
 
 	public User(String userID, String name, String email, String password, Role role, 
                 Address address, FullName fullName, Contact contact) {
-        this.userID = userID;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.address = address;
-        this.fullName = fullName;
-        this.contact = contact;
-    }
+		this.userID = userID;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		this.address = address;
+		this.fullName = fullName;
+		this.contact = contact;
+	}
 
 	public String getUserID() {
 		return this.userID;

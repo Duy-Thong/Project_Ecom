@@ -1,20 +1,37 @@
 package com.example.ecommerce.model.payment;
 
+import jakarta.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "payments")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Payment {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "payment_id")
 	private String paymentID;
+
+	@Column(nullable = false)
 	private String type;
+
+	@Column(nullable = false)
 	private String amount;
+
+	@Column(name = "payment_date", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date paymentDate;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "status_id", nullable = false)
 	private PaymentStatus status;
+
+	@Column(nullable = false)
 	private String method;
 
-	// Default constructor
 	public Payment() {
 	}
 
-	// Parameterized constructor
 	public Payment(String paymentID, String type, String amount, Date paymentDate, PaymentStatus status, String method) {
 		this.paymentID = paymentID;
 		this.type = type;
@@ -28,8 +45,8 @@ public class Payment {
 		return this.paymentID;
 	}
 
-	public void setPaymentID(String iD) {
-		this.paymentID = iD;
+	public void setPaymentID(String paymentID) {
+		this.paymentID = paymentID;
 	}
 
 	public String getType() {

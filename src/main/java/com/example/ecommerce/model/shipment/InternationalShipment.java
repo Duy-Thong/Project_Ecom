@@ -1,8 +1,18 @@
 package com.example.ecommerce.model.shipment;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "international_shipments")
+@PrimaryKeyJoinColumn(name = "international_shipment_id")
 public class InternationalShipment extends Shipment {
+	@Column(name = "destination_country", nullable = false)
 	private String destinationCountry;
+
+	@Column(name = "customs_fee", nullable = false)
 	private double customsFee;
+
+	@Column(name = "international_tracking_number", unique = true)
 	private String internationalTrackingNumber;
 
 	public String getDestinationCountry() {

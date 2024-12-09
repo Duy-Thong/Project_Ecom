@@ -1,8 +1,18 @@
 package com.example.ecommerce.model.product.electronics;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "smartphones")
+@PrimaryKeyJoinColumn(name = "smartphone_id")
 public class Smartphone extends Electronics {
+	@Column(name = "camera_resolution", nullable = false)
 	private int cameraResolution;
+
+	@Column(name = "sim_count", nullable = false)
 	private int simCount;
+
+	@Column(name = "fingerprint_sensor")
 	private boolean fingerprintSensor;
 
 	public int getCameraResolution() {

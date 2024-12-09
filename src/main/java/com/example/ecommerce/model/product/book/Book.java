@@ -1,10 +1,21 @@
 package com.example.ecommerce.model.product.book;
 
 import com.example.ecommerce.model.product.Product;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "books")
+@PrimaryKeyJoinColumn(name = "book_id")
 public class Book extends Product {
+    @Column(unique = true)
     private String isbn;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "author_id")
     private Author author;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
     public String getIsbn() {
@@ -30,6 +41,4 @@ public class Book extends Product {
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
     }
-
-
 }

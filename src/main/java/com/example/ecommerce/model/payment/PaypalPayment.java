@@ -1,7 +1,15 @@
 package com.example.ecommerce.model.payment;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "paypal_payments")
+@PrimaryKeyJoinColumn(name = "paypal_payment_id")
 public class PaypalPayment extends Payment {
+	@Column(name = "paypal_account", nullable = false)
 	private String paypalAccount;
+
+	@Column(name = "paypal_email", nullable = false)
 	private String paypalEmail;
 
 	public String getPaypalAccount() {

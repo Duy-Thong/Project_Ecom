@@ -1,18 +1,33 @@
 package com.example.ecommerce.model.product.electronics;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "batteries")
 public class Battery {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "battery_id")
 	private String batteryID;
+
+	@Column(nullable = false)
 	private int capacity;
+
+	@Column(nullable = false)
 	private double life;
+
+	@Column(nullable = false)
 	private String type;
-	public Electronics electronics;
+
+	@OneToOne(mappedBy = "battery")
+	private Electronics electronics;
 
 	public String getBatteryID() {
 		return this.batteryID;
 	}
 
-	public void setBatteryID(String iD) {
-		this.batteryID = iD;
+	public void setBatteryID(String batteryID) {
+		this.batteryID = batteryID;
 	}
 
 	public int getCapacity() {
@@ -37,5 +52,13 @@ public class Battery {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public Electronics getElectronics() {
+		return electronics;
+	}
+
+	public void setElectronics(Electronics electronics) {
+		this.electronics = electronics;
 	}
 }

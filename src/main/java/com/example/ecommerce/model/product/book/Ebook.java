@@ -1,8 +1,18 @@
 package com.example.ecommerce.model.product.book;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "ebooks")
+@PrimaryKeyJoinColumn(name = "ebook_id")
 public class Ebook extends Book {
+	@Column(name = "file_format", nullable = false)
 	private String fileFormat;
+
+	@Column(name = "file_size")
 	private double fileSize;
+
+	@Column(name = "download_link")
 	private String downloadLink;
 
 	public String getFileFormat() {
