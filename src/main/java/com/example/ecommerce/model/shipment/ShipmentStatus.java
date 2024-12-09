@@ -1,5 +1,7 @@
 package com.example.ecommerce.model.shipment;
 
+import java.util.Date;
+
 public class ShipmentStatus {
 	private String statusID;
 	private Date timestamp;

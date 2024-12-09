@@ -1,5 +1,6 @@
 package com.example.ecommerce.model.user;
 
+import com.example.ecommerce.model.cart.Cart;
 import com.example.ecommerce.model.order.Order;
 import com.example.ecommerce.model.product.Rating;
 

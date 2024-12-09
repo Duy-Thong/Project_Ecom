@@ -1,5 +1,7 @@
 package com.example.ecommerce.model.product.clothes;
 
+import com.example.ecommerce.model.product.electronics.Electronics;
+
 public class Brand {
 	private String brandID;
 	private String name;

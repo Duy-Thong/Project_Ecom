@@ -2,7 +2,7 @@ package com.example.ecommerce.model.product.clothes;
 
 public class Shirt extends Clothes {
 	private double sleeveLength;
-	private Object shirtType;
+	private String shirtType;
 
 	public double getSleeveLength() {
 		return this.sleeveLength;
@@ -12,11 +12,11 @@ public class Shirt extends Clothes {
 		this.sleeveLength = sleeveLength;
 	}
 
-	public void getShirtType() {
+	public String getShirtType() {
 		return this.shirtType;
 	}
 
-	public void setShirtType(Object shirtType) {
+	public void setShirtType(String shirtType) {
 		this.shirtType = shirtType;
 	}
 }

@@ -31,8 +31,5 @@ public class Book extends Product {
         this.publisher = publisher;
     }
 
-    @Override
-    public String getType() {
-        return "BOOK";
-    }
+
 }
