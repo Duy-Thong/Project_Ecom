@@ -2,6 +2,8 @@ package com.example.ecommerce.model.product.electronics;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("LAPTOP")
 public class Laptop extends Electronics {
 	@Column
 	private String keyboard;

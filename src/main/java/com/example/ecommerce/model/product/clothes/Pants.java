@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "pants")
 @PrimaryKeyJoinColumn(name = "pants_id")
+@DiscriminatorValue("PANTS")
 public class Pants extends Clothes {
 	@Column(name = "waist_size", nullable = false)
 	private double waistSize;

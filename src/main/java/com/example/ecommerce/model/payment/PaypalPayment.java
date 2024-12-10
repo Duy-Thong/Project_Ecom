@@ -2,6 +2,8 @@ package com.example.ecommerce.model.payment;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("PAYPAL")
 public class PaypalPayment extends Payment {
 	@Column(name = "paypal_account")
 	private String paypalAccount;

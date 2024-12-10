@@ -6,16 +6,17 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "books")
 @PrimaryKeyJoinColumn(name = "book_id")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "book_type")
 public class Book extends Product {
     @Column(unique = true)
     private String isbn;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 

@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "electronics")
 @PrimaryKeyJoinColumn(name = "electronics_id")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "electronics_type")
 public class Electronics extends Product {
 	@Column
 	private String os;
@@ -16,15 +17,15 @@ public class Electronics extends Product {
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "hardware_id")
 	private Hardware hardware;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "screen_id")
 	private Screen screen;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name = "battery_id")
 	private Battery battery;
 

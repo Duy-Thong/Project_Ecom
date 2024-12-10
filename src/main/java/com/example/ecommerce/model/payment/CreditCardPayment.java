@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
+@DiscriminatorValue("CREDIT_CARD")
 public class CreditCardPayment extends Payment {
 	@Column(name = "credit_card_number")
 	private String creditCardNumber;

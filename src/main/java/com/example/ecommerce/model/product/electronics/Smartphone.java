@@ -2,6 +2,8 @@ package com.example.ecommerce.model.product.electronics;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("SMARTPHONE")
 public class Smartphone extends Electronics {
 	@Column(name = "camera_resolution")
 	private int cameraResolution;

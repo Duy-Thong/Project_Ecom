@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "clothes")
 @PrimaryKeyJoinColumn(name = "clothes_id")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "clothes_type")
 public class Clothes extends Product {
 	@Column
 	private String size;
@@ -14,11 +15,11 @@ public class Clothes extends Product {
 	@Column
 	private String color;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "material_id")
 	private Material material;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 

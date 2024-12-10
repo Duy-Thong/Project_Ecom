@@ -2,6 +2,8 @@ package com.example.ecommerce.model.shipment;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("INTERNATIONAL")
 public class InternationalShipment extends Shipment {
 	@Column(name = "destination_country")
 	private String destinationCountry;

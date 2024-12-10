@@ -2,6 +2,8 @@ package com.example.ecommerce.model.product.book;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("EBOOK")
 public class Ebook extends Book {
 	@Column(name = "file_format")
 	private String fileFormat;

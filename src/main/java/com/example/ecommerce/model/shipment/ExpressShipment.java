@@ -2,6 +2,8 @@ package com.example.ecommerce.model.shipment;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("EXPRESS")
 public class ExpressShipment extends Shipment {
 	@Column(name = "delivery_time")
 	private int deliveryTime;

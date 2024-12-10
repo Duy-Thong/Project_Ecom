@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name = "cart_items")
 public class CartItem {
 	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "cart_item_id")
 	private String cartItemID;
 

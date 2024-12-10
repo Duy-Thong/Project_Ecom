@@ -2,6 +2,8 @@ package com.example.ecommerce.model.product.clothes;
 
 import jakarta.persistence.*;
 
+@Entity
+@DiscriminatorValue("DRESS")
 public class Dress extends Clothes {
 	@Column(name = "dress_length")
 	private double dressLength;
