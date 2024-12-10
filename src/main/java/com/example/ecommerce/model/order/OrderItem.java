@@ -11,15 +11,15 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private String orderItemID;
 
-    @Column(nullable = false)
+    @Column
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id")
     private Order order;
 
     public OrderItem() {

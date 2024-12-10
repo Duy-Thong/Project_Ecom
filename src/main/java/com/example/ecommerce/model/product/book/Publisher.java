@@ -12,7 +12,7 @@ public class Publisher {
     @Column(name = "publisher_id")
     private String publisherID;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     @Column(columnDefinition = "TEXT")

@@ -12,10 +12,10 @@ public class Rating {
     @Column(name = "rating_id")
     private String ratingID;
 
-    @Column(name = "rating_value", nullable = false)
+    @Column(name = "rating_value")
     private int ratingValue;
 
-    @Column(name = "rating_date", nullable = false)
+    @Column(name = "rating_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date ratingDate;
 
@@ -23,11 +23,11 @@ public class Rating {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "reviewer_id", nullable = false)
+    @JoinColumn(name = "reviewer_id")
     private Customer reviewer;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Rating() {

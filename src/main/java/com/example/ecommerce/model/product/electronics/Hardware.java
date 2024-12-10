@@ -10,15 +10,15 @@ public class Hardware {
 	@Column(name = "hardware_id")
 	private String hardwareID;
 
-	@Column(nullable = false)
+	@Column
 	private String cpu;
 
 	private String gpu;
 
-	@Column(nullable = false)
+	@Column
 	private String ram;
 
-	@Column(nullable = false)
+	@Column
 	private String storage;
 
 	@OneToOne(mappedBy = "hardware")

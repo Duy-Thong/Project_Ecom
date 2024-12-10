@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "clothes")
 @PrimaryKeyJoinColumn(name = "clothes_id")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Clothes extends Product {
-	@Column(nullable = false)
+	@Column
 	private String size;
 
-	@Column(nullable = false)
+	@Column
 	private String color;
 
 	@ManyToOne(cascade = CascadeType.ALL)

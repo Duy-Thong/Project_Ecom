@@ -10,13 +10,13 @@ public class Battery {
 	@Column(name = "battery_id")
 	private String batteryID;
 
-	@Column(nullable = false)
+	@Column
 	private int capacity;
 
-	@Column(nullable = false)
+	@Column
 	private double life;
 
-	@Column(nullable = false)
+	@Column
 	private String type;
 
 	@OneToOne(mappedBy = "battery")

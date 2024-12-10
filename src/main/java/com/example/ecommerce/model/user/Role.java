@@ -11,7 +11,7 @@ public class Role {
 	@Column(name = "role_id")
 	private String roleID;
 
-	@Column(name = "role_name", nullable = false, unique = true)
+	@Column(name = "role_name", unique = true)
 	private String roleName;
 
 	@OneToMany(mappedBy = "role")

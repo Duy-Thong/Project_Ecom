@@ -2,14 +2,11 @@ package com.example.ecommerce.model.shipment;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "express_shipments")
-@PrimaryKeyJoinColumn(name = "express_shipment_id")
 public class ExpressShipment extends Shipment {
-	@Column(name = "delivery_time", nullable = false)
+	@Column(name = "delivery_time")
 	private int deliveryTime;
 
-	@Column(name = "expedited_fee", nullable = false)
+	@Column(name = "expedited_fee")
 	private double expeditedFee;
 
 	public int getDeliveryTime() {

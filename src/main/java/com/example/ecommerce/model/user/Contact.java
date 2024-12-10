@@ -8,6 +8,7 @@ public class Contact {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
+	@Column(name = "social_media")
 	private String social;
 
 	// Default constructor

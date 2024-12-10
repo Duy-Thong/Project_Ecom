@@ -2,11 +2,8 @@ package com.example.ecommerce.model.payment;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "cash_on_delivery_payments")
-@PrimaryKeyJoinColumn(name = "cash_on_delivery_payment_id")
 public class CashOnDeliveryPayment extends Payment {
-	@Column(name = "cash_amount", nullable = false)
+	@Column(name = "cash_amount")
 	private double cashAmount;
 
 	public double getCashAmount() {

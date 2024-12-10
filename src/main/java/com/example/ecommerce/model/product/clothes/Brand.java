@@ -13,7 +13,7 @@ public class Brand {
 	@Column(name = "brand_id")
 	private String brandID;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 
 	@Column(columnDefinition = "TEXT")

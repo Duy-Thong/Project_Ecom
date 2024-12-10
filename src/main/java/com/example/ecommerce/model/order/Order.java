@@ -5,6 +5,7 @@ import com.example.ecommerce.model.shipment.Shipment;
 import com.example.ecommerce.model.user.Customer;
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -31,8 +32,15 @@ public class Order {
 	private Discount discount;
 
 	@ManyToOne
-	@JoinColumn(name = "customer_id", nullable = false)
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
+
+	@Column(name = "order_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date orderDate;
+
+	@Column
+	private String status;
 
 	public Order() {
 		this.items = new ArrayList<>();

@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "customers")
-@PrimaryKeyJoinColumn(name = "customer_id")
+@DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cart_id")

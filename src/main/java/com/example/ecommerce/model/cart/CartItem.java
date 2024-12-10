@@ -10,15 +10,15 @@ public class CartItem {
 	@Column(name = "cart_item_id")
 	private String cartItemID;
 
-	@Column(nullable = false)
+	@Column
 	private int quantity;
 
 	@ManyToOne
-	@JoinColumn(name = "product_id", nullable = false)
+	@JoinColumn(name = "product_id")
 	private Product product;
 
 	@ManyToOne
-	@JoinColumn(name = "cart_id", nullable = false)
+	@JoinColumn(name = "cart_id")
 	private Cart cart;
 
 	public CartItem(String cartItemID, int quantity, Product product) {

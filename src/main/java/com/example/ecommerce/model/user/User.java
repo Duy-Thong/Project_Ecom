@@ -4,24 +4,25 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "user_id")
 	private String userID;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 
-	@Column(nullable = false, unique = true)
+	@Column(unique = true)
 	private String email;
 
-	@Column(nullable = false)
+	@Column
 	private String password;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "role_id", nullable = false)
+	@JoinColumn(name = "role_id")
 	private Role role;
 
 	@Embedded

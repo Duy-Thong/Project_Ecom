@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "books")
 @PrimaryKeyJoinColumn(name = "book_id")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Book extends Product {
     @Column(unique = true)
     private String isbn;

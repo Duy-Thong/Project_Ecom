@@ -11,18 +11,18 @@ public class ShipmentStatus {
 	@Column(name = "status_id")
 	private String statusID;
 
-	@Column(nullable = false)
+	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timestamp;
 
-	@Column(nullable = false)
+	@Column
 	private String location;
 
-	@Column(name = "status_description", columnDefinition = "TEXT", nullable = false)
+	@Column(name = "status_description", columnDefinition = "TEXT")
 	private String statusDescription;
 
 	@ManyToOne
-	@JoinColumn(name = "shipment_id", nullable = false)
+	@JoinColumn(name = "shipment_id")
 	private Shipment shipment;
 
 	public ShipmentStatus() {

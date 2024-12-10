@@ -2,11 +2,8 @@ package com.example.ecommerce.model.product.electronics;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "laptops")
-@PrimaryKeyJoinColumn(name = "laptop_id")
 public class Laptop extends Electronics {
-	@Column(nullable = false)
+	@Column
 	private String keyboard;
 
 	private String trackpad;

@@ -10,16 +10,16 @@ public class Screen {
 	@Column(name = "screen_id")
 	private String screenID;
 
-	@Column(nullable = false)
+	@Column
 	private String resolution;
 
-	@Column(nullable = false)
+	@Column
 	private double size;
 
-	@Column(name = "refresh_rate", nullable = false)
+	@Column(name = "refresh_rate")
 	private int refreshRate;
 
-	@Column(name = "display_type", nullable = false)
+	@Column(name = "display_type")
 	private String displayType;
 
 	@OneToOne(mappedBy = "screen")

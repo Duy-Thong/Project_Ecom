@@ -7,8 +7,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "electronics")
 @PrimaryKeyJoinColumn(name = "electronics_id")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Electronics extends Product {
-	@Column(nullable = false)
+	@Column
 	private String os;
 
 	@ManyToOne

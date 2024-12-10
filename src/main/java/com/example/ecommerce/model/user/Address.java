@@ -5,16 +5,16 @@ import jakarta.persistence.Column;
 
 @Embeddable
 public class Address {
-	@Column(nullable = false)
+	@Column
 	private String city;
 
-	@Column(nullable = false)
+	@Column
 	private String state;
 
-	@Column(name = "postal_code", nullable = false)
+	@Column(name = "postal_code")
 	private String postalCode;
 
-	@Column(nullable = false)
+	@Column
 	private String country;
 
 	public Address() {

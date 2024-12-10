@@ -12,7 +12,7 @@ public class PaymentStatus {
     @Column(name = "status_id")
     private String statusID;
 
-    @Column(name = "status_name", nullable = false, unique = true)
+    @Column(name = "status_name")
     private String paymentStatusName;
 
     @OneToMany(mappedBy = "status")

@@ -2,9 +2,6 @@ package com.example.ecommerce.model.product.electronics;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tablets")
-@PrimaryKeyJoinColumn(name = "tablet_id")
 public class Tablet extends Electronics {
 	@Column(name = "pen_support")
 	private String penSupport;

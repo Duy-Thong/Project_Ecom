@@ -12,7 +12,7 @@ public class ShipmentMethods {
 	@Column(name = "method_id")
 	private String methodID;
 
-	@Column(name = "method_name", nullable = false, unique = true)
+	@Column(name = "method_name", unique = true)
 	private String shipmentMethodName;
 
 	@OneToMany(mappedBy = "shipmentMethod")

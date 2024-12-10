@@ -5,28 +5,29 @@ import java.util.Date;
 
 @Entity
 @Table(name = "payments")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "payment_type")
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "payment_id")
 	private String paymentID;
 
-	@Column(nullable = false)
+	@Column
 	private String type;
 
-	@Column(nullable = false)
+	@Column
 	private String amount;
 
-	@Column(name = "payment_date", nullable = false)
+	@Column(name = "payment_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date paymentDate;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "status_id", nullable = false)
+	@JoinColumn(name = "status_id")
 	private PaymentStatus status;
 
-	@Column(nullable = false)
+	@Column
 	private String method;
 
 	public Payment() {

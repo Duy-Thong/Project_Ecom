@@ -13,17 +13,17 @@ public class Discount {
 	@Column(name = "discount_id")
 	private String discountID;
 
-	@Column(nullable = false, unique = true)
+	@Column(unique = true)
 	private String code;
 
-	@Column(nullable = false)
+	@Column
 	private int percent;
 
-	@Column(name = "start_date", nullable = false)
+	@Column(name = "start_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 
-	@Column(name = "end_date", nullable = false)
+	@Column(name = "end_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
 

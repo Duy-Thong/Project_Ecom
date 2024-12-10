@@ -12,8 +12,11 @@ public class Material {
 	@Column(name = "material_id")
 	private String materialID;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
+
+	@Column
+	private String type;
 
 	@Column(columnDefinition = "TEXT")
 	private String composition;

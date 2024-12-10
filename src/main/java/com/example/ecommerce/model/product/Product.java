@@ -13,16 +13,16 @@ public class Product {
 	@Column(name = "product_id")
 	private String productID;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 
-	@Column(nullable = false)
-	private String price;
+	@Column
+	private double price;
 
-	@Column(nullable = false)
+	@Column
 	private int stock;
 
-	@Column(nullable = false)
+	@Column
 	private String category;
 
 	@Column(columnDefinition = "TEXT")
@@ -38,7 +38,7 @@ public class Product {
 		this.ratings = new ArrayList<>();
 	}
 
-	public Product(String productID, String name, String price, int stock, 
+	public Product(String productID, String name, double price, int stock, 
 				  String category, String description, String image_url) {
 		this.productID = productID;
 		this.name = name;
@@ -66,11 +66,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

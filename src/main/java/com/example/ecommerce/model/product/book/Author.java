@@ -12,12 +12,12 @@ public class Author {
     @Column(name = "author_id")
     private String authorID;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     private String phone;
 
-    @Column(nullable = false)
+    @Column
     private String email;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)

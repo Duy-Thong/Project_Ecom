@@ -2,11 +2,8 @@ package com.example.ecommerce.model.product.book;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "ebooks")
-@PrimaryKeyJoinColumn(name = "ebook_id")
 public class Ebook extends Book {
-	@Column(name = "file_format", nullable = false)
+	@Column(name = "file_format")
 	private String fileFormat;
 
 	@Column(name = "file_size")

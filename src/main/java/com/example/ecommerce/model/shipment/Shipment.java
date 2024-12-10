@@ -7,14 +7,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "shipments")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "shipment_type")
 public class Shipment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "shipment_id")
 	private String shipmentID;
 
-	@Column(name = "shipment_date", nullable = false)
+	@Column(name = "shipment_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date shipmentDate;
 
@@ -26,19 +27,19 @@ public class Shipment {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date actualDeliveryDate;
 
-	@Column(name = "shipping_address", columnDefinition = "TEXT", nullable = false)
+	@Column(name = "shipping_address", columnDefinition = "TEXT")
 	private String shippingAddress;
 
 	@Column(name = "tracking_number", unique = true)
 	private String trackingNumber;
 
-	@Column(nullable = false)
+	@Column
 	private double fee;
 
-	@Column(nullable = false)
+	@Column
 	private String type;
 
-	@Column(nullable = false)
+	@Column
 	private String status;
 
 	@OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL)
