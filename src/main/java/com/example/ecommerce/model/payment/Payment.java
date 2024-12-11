@@ -1,13 +1,14 @@
 package com.example.ecommerce.model.payment;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table(name = "payments")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "payment_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("PAYMENT")
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
