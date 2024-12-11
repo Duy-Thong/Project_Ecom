@@ -1,5 +1,6 @@
 package com.example.ecommerce.model.product.book;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Author {
     private String email;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Book> books = new ArrayList<>();
 
     public String getAuthorID() {

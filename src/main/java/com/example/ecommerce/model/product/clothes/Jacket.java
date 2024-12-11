@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @DiscriminatorValue("JACKET")
 public class Jacket extends Clothes {
-	@Column(name = "jacket_type", nullable = false)
+	@Column(name = "jacket_type")
 	private String jacketType;
 
 	@Column(name = "has_hood")

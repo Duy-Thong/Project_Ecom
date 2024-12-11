@@ -1,6 +1,7 @@
 package com.example.ecommerce.model.product.book;
 
 import com.example.ecommerce.model.product.Product;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Column;
@@ -15,10 +16,12 @@ public class Book extends Product {
 
     @ManyToOne
     @JoinColumn(name = "author_id")
+    @JsonManagedReference
     private Author author;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
+    @JsonManagedReference
     private Publisher publisher;
 
     public String getIsbn() {
