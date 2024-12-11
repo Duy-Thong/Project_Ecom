@@ -1,11 +1,13 @@
 package com.example.ecommerce.model.user;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_type")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -20,9 +22,10 @@ public class User {
 
 	@Column
 	private String password;
-
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_id")
+	@JsonIgnoreProperties({"users", "hibernateLazyInitializer", "handler"})
 	private Role role;
 
 	@Embedded

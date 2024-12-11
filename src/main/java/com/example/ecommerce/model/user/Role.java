@@ -1,10 +1,13 @@
 package com.example.ecommerce.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "roles")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -14,6 +17,7 @@ public class Role {
 	@Column(name = "role_name", unique = true)
 	private String roleName;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "role")
 	private List<User> users;
 
