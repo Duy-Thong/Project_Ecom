@@ -1,39 +1,40 @@
 package com.example.ecommerce.model.payment;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table(name = "payments")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "payment_type")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "payment_id")
 	private String paymentID;
 
-	@Column
+	@Column(nullable = false)
 	private String type;
 
-	@Column
-	private String amount;
+	@Column(nullable = false)
+	private BigDecimal amount;
 
-	@Column(name = "payment_date")
+	@Column(name = "payment_date", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date paymentDate;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "status_id")
+	@JoinColumn(name = "status_id", nullable = false)
 	private PaymentStatus status;
 
-	@Column
+	@Column(nullable = false)
 	private String method;
 
 	public Payment() {
 	}
 
-	public Payment(String paymentID, String type, String amount, Date paymentDate, PaymentStatus status, String method) {
+	public Payment(String paymentID, String type, BigDecimal amount, Date paymentDate, PaymentStatus status, String method) {
 		this.paymentID = paymentID;
 		this.type = type;
 		this.amount = amount;
@@ -58,11 +59,11 @@ public class Payment {
 		this.type = type;
 	}
 
-	public String getAmount() {
+	public  BigDecimal getAmount() {
 		return this.amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(BigDecimal  amount) {
 		this.amount = amount;
 	}
 

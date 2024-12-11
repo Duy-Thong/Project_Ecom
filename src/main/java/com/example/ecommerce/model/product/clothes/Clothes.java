@@ -1,13 +1,19 @@
 package com.example.ecommerce.model.product.clothes;
 
 import com.example.ecommerce.model.product.Product;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorValue;
 
 @Entity
-@Table(name = "clothes")
-@PrimaryKeyJoinColumn(name = "clothes_id")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "clothes_type")
+@DiscriminatorValue("CLOTHES")
 public class Clothes extends Product {
 	@Column
 	private String size;

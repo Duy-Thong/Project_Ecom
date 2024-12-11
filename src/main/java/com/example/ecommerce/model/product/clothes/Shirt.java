@@ -3,8 +3,6 @@ package com.example.ecommerce.model.product.clothes;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "shirts")
-@PrimaryKeyJoinColumn(name = "shirt_id")
 @DiscriminatorValue("SHIRT")
 public class Shirt extends Clothes {
 	@Column(name = "sleeve_length", nullable = false)

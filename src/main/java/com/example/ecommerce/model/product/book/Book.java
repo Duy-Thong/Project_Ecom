@@ -1,13 +1,14 @@
 package com.example.ecommerce.model.product.book;
 
 import com.example.ecommerce.model.product.Product;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
-@Table(name = "books")
-@PrimaryKeyJoinColumn(name = "book_id")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "book_type")
+@DiscriminatorValue("BOOK")
 public class Book extends Product {
     @Column(unique = true)
     private String isbn;
@@ -43,6 +44,4 @@ public class Book extends Product {
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
     }
-
-
 }

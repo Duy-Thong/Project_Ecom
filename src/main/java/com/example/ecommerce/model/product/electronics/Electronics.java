@@ -3,12 +3,10 @@ package com.example.ecommerce.model.product.electronics;
 import com.example.ecommerce.model.product.Product;
 import com.example.ecommerce.model.product.clothes.Brand;
 import jakarta.persistence.*;
-
 @Entity
-@Table(name = "electronics")
-@PrimaryKeyJoinColumn(name = "electronics_id")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "electronics_type")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "product_type")
+@DiscriminatorValue("ELECTRONICS")
 public class Electronics extends Product {
 	@Column
 	private String os;
