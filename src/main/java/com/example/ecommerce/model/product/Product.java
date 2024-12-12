@@ -6,9 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("PRODUCT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)

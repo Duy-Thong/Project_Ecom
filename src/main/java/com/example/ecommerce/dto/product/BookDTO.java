@@ -12,7 +12,15 @@ public class BookDTO {
     private String isbn;
     private String authorId;
     private String publisherId;
-    
+    private int pages;
+    private String paperType;
+    private double fileSize;
+    private String fileFormat;
+    private String downloadLink;
+    private double duration;
+    private String narrator;
+    private String audioFormat;
+
     // Getters và Setters
     public String getName() {
         return name;
@@ -84,5 +92,69 @@ public class BookDTO {
 
     public void setPublisherId(String publisherId) {
         this.publisherId = publisherId;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public String getPaperType() {
+        return paperType;
+    }
+
+    public void setPaperType(String paperType) {
+        this.paperType = paperType;
+    }
+
+    public double getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(double fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public String getFileFormat() {
+        return fileFormat;
+    }
+
+    public void setFileFormat(String fileFormat) {
+        this.fileFormat = fileFormat;
+    }
+
+    public String getDownloadLink() {
+        return downloadLink;
+    }
+
+    public void setDownloadLink(String downloadLink) {
+        this.downloadLink = downloadLink;
+    }
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(double duration) {
+        this.duration = duration;
+    }
+
+    public String getNarrator() {
+        return narrator;
+    }
+
+    public void setNarrator(String narrator) {
+        this.narrator = narrator;
+    }
+
+    public String getAudioFormat() {
+        return audioFormat;
+    }
+
+    public void setAudioFormat(String audioFormat) {
+        this.audioFormat = audioFormat;
     }
 } 
